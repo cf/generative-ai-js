@@ -73,7 +73,7 @@ access and utilize the Gemini model for various use cases.
 **To try out the sample Node app, follow these steps:**
 
 1.  Check out this repository. \
-    `git clone https://github.com/google/generative-ai-js`
+    `git clone https://github.com/cf/generative-ai-js`
 
 1.  [Obtain an API key](https://makersuite.google.com/app/apikey) to use with
     the Google AI SDKs.
