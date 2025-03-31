@@ -39,6 +39,7 @@ export async function generateContentStream(
     /* stream */ true,
     JSON.stringify(params),
     requestOptions,
+    requestOptions.fetch,
   );
   return processStream(response);
 }
@@ -56,6 +57,7 @@ export async function generateContent(
     /* stream */ false,
     JSON.stringify(params),
     requestOptions,
+    requestOptions?.fetch,
   );
   const responseJson: GenerateContentResponse = await response.json();
   const enhancedResponse = addHelpers(responseJson);

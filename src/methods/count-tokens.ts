@@ -35,6 +35,7 @@ export async function countTokens(
     false,
     JSON.stringify(params),
     singleRequestOptions,
+    singleRequestOptions.fetch,
   );
   return response.json();
 }

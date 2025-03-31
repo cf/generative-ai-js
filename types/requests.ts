@@ -207,6 +207,7 @@ export interface RequestOptions {
    * Custom HTTP request headers.
    */
   customHeaders?: Headers | Record<string, string>;
+  fetch?: typeof fetch;
 }
 
 /**

@@ -89,7 +89,7 @@ export class GoogleAIFileManager {
     const postBlobPart = "\r\n--" + boundary + "--";
     const blob = new Blob([preBlobPart, file, postBlobPart]);
 
-    const response = await makeServerRequest(url, uploadHeaders, blob);
+    const response = await makeServerRequest(url, uploadHeaders, blob, this._requestOptions.fetch);
     return response.json();
   }
 
@@ -120,7 +120,7 @@ export class GoogleAIFileManager {
       url.appendParam("pageToken", listParams.pageToken);
     }
     const uploadHeaders = getHeaders(url);
-    const response = await makeServerRequest(url, uploadHeaders);
+    const response = await makeServerRequest(url, uploadHeaders, undefined, filesRequestOptions.fetch);
     return response.json();
   }
 
@@ -146,7 +146,7 @@ export class GoogleAIFileManager {
     );
     url.appendPath(parseFileId(fileId));
     const uploadHeaders = getHeaders(url);
-    const response = await makeServerRequest(url, uploadHeaders);
+    const response = await makeServerRequest(url, uploadHeaders, undefined, filesRequestOptions.fetch);
     return response.json();
   }
 
@@ -161,7 +161,7 @@ export class GoogleAIFileManager {
     );
     url.appendPath(parseFileId(fileId));
     const uploadHeaders = getHeaders(url);
-    await makeServerRequest(url, uploadHeaders);
+    await makeServerRequest(url, uploadHeaders, undefined, this._requestOptions?.fetch);
   }
 }
 
